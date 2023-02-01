@@ -3,37 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     public Scene nowScene = default;
-    private static GameManager instance = null;
-    private static GameObject gameObject;
-    public static GameManager Instance{
-        get{
-            if(instance == null){
-                gameObject = new GameObject();
-                gameObject.name = "GameManager";
-                instance = gameObject.AddComponent(typeof(GameManager)) as GameManager;
-            }else{
-                Destroy(gameObject);
-            }
+    public static GameManager instance ;
 
-            return instance;
+    public int stageNum = 1;
+    public Player player = new Player();
+
+    void Awake()
+    {
+
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+
         }
-    }
-    void Awake(){
-        
-        
+        else if (instance != this)
+        {
+            Destroy(instance.gameObject);
+        }
+
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    void Init(){
+
     }
 }

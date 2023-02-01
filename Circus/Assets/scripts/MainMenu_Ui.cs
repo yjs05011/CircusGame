@@ -5,14 +5,27 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
+
 public class MainMenu_Ui : MonoBehaviour
 {
     public Toggle[] toggles = null;
+    public GameObject Text = null;
+    private int blinkTime = 0;
+    private bool blinkChk = false;
+    private bool changeImg = true;
+    private int changeImgTime= 0;
+    public GameObject[] TitleImg = null;
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.nowScene = SceneManager.GetActiveScene();
-
+        GameManager.instance.nowScene = SceneManager.GetActiveScene();
+        Debug.Log(GameManager.instance.player);
+        GameManager.instance.player.Life = 3;
+        GameManager.instance.player.StageNum= 1;
+        GameManager.instance.player.BoundsScore = 5000;
+        GameManager.instance.player.Score = 0;
+        GameManager.instance.player.ClearChk = false;
+        GameManager.instance.player.Die = false;
         toggles[0].isOn = true;
         toggles[1].isOn = false;
     }
@@ -20,12 +33,40 @@ public class MainMenu_Ui : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if(changeImg){
+            changeImg = false;
+            TitleImg[changeImgTime].SetActive(true);
+            
+            StartCoroutine("Title");
+            changeImgTime++;
+            
+            
+        }
+
+
+        if(blinkChk){
+            blinkChk = false;
+            StartCoroutine("Blink");
+            blinkTime ++;
+            if(blinkTime %2 == 0){
+                Text.SetActive(true);
+            }else{
+                Text.SetActive(false);
+            }
+            if(blinkTime > 10){
+                blinkTime =0;
+                
+                
+                Debug.Log(GameManager.instance.player.Life);
+                SceneManager.LoadScene("LoadingScene");
+            }
+        }
     }
 
     public void OnClickJump(){
         if(toggles[0].isOn == true){
-            SceneManager.LoadScene("Stage 1");
+            blinkChk = true;
         }else if(toggles[1].isOn == true){
             Application.Quit();
             Debug.Log("게임 종료");
@@ -39,6 +80,25 @@ public class MainMenu_Ui : MonoBehaviour
             toggles[0].isOn = true;
             toggles[1].isOn = false;
         }
+    }
+    IEnumerator Blink(){
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        blinkChk = true;
+    }
+    IEnumerator Title(){
+        
+        yield return new WaitForSeconds(0.1f);
+        if(changeImgTime == 3 ){
+                for(int i =0 ; i<TitleImg.Length; i++){
+                
+                    TitleImg[i].SetActive(false);
+            }
+            changeImgTime =0;
+        }
+        changeImg = true;
+        
     }
     
 }

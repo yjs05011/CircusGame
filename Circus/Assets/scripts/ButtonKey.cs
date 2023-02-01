@@ -17,20 +17,20 @@ public class ButtonKey : MonoBehaviour
         
     }
     public void JumpKey(){
-        if(GameManager.Instance.nowScene.name == "PressAny"){
-            Debug.Log(GameManager.Instance.nowScene.name);
+        if(GameManager.instance.nowScene.name == "PressAny"){
+            Debug.Log(GameManager.instance.nowScene.name);
             // if()
         }
     }
     public void LeftKey(){
-        if(GameManager.Instance.nowScene.name == "PressAny"){
-            Debug.Log(GameManager.Instance.nowScene.name);
+        if(GameManager.instance.nowScene.name == "PressAny"){
+            Debug.Log(GameManager.instance.nowScene.name);
             // if()
         }
     }
     public void RightKey(){
-        if(GameManager.Instance.nowScene.name == "PressAny"){
-            Debug.Log(GameManager.Instance.nowScene.name);
+        if(GameManager.instance.nowScene.name == "PressAny"){
+            Debug.Log(GameManager.instance.nowScene.name);
             // if()
         }
     }

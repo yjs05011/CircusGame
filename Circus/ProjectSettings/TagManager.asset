@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -38,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 3231236143
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: button
+    uniqueID: 3085360157
     locked: 0
