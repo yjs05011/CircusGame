@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Dead
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -47,4 +49,13 @@ TagManager:
     locked: 0
   - name: button
     uniqueID: 3085360157
+    locked: 0
+  - name: Back
+    uniqueID: 1876583789
+    locked: 0
+  - name: player
+    uniqueID: 157041083
+    locked: 0
+  - name: Front
+    uniqueID: 1158381979
     locked: 0

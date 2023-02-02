@@ -218,6 +218,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingScene
       objectReference: {fileID: 0}
+    - target: {fileID: 2673037311341481061, guid: a91c2572f6432d5468a1c72fb4292234, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673037311341481061, guid: a91c2572f6432d5468a1c72fb4292234, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 2967604145929468842, guid: a91c2572f6432d5468a1c72fb4292234, type: 3}
       propertyPath: m_Pivot.x
       value: 0

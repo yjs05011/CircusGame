@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public Scene nowScene = default;
     public static GameManager instance ;
-
+    public bool CameraCheck = false;
     public int stageNum = 1;
     public Player player = new Player();
 
