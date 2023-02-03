@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu_Ui : MonoBehaviour
 {
+    public AudioClip[] sound = null;
+    private AudioSource uiSound = null;
     public Toggle[] toggles = null;
     public GameObject Text = null;
     private int blinkTime = 0;
@@ -15,9 +17,11 @@ public class MainMenu_Ui : MonoBehaviour
     private bool changeImg = true;
     private int changeImgTime= 0;
     public GameObject[] TitleImg = null;
+    private bool select = false;
     // Start is called before the first frame update
     void Start()
     {
+        uiSound = gameObject.GetComponent<AudioSource>();
         GameManager.instance.nowScene = SceneManager.GetActiveScene();
         Debug.Log(GameManager.instance.player);
         GameManager.instance.player.Life = 3;
@@ -33,8 +37,8 @@ public class MainMenu_Ui : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if(changeImg){
+        if(!select){
+            if(changeImg){
             changeImg = false;
             TitleImg[changeImgTime].SetActive(true);
             
@@ -45,6 +49,8 @@ public class MainMenu_Ui : MonoBehaviour
         }
 
 
+        }
+        
         if(blinkChk){
             blinkChk = false;
             StartCoroutine("Blink");
@@ -62,24 +68,39 @@ public class MainMenu_Ui : MonoBehaviour
                 SceneManager.LoadScene("LoadingScene");
             }
         }
+
+        
     }
 
     public void OnClickJump(){
-        if(toggles[0].isOn == true){
+        if(select){}
+        else{
+            uiSound.clip = sound[1];
+            uiSound.Play();
+            select = true; 
+            if(toggles[0].isOn == true){
             blinkChk = true;
         }else if(toggles[1].isOn == true){
             Application.Quit();
             Debug.Log("게임 종료");
-        }
+        }}
+       
     }
     public void OnClickArrow(){
+        if(select){}
+        else{
+            uiSound.clip = sound[0];
+            uiSound.Play();
         if(toggles[0].isOn == true){
+            
             toggles[0].isOn = false;
             toggles[1].isOn = true;
         }else if(toggles[1].isOn == true){
             toggles[0].isOn = true;
             toggles[1].isOn = false;
         }
+        }
+      
     }
     IEnumerator Blink(){
         

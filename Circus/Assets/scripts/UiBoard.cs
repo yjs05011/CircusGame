@@ -7,7 +7,8 @@ using TMPro;
 public class UiBoard : MonoBehaviour
 {
     public TMP_Text[] score =null;
-
+    private int scoreReset = 0;
+    public Image[] Life = null;
     public bool flag = false;
     int digit =0;
     // Start is called before the first frame update
@@ -16,7 +17,18 @@ public class UiBoard : MonoBehaviour
         score[0].text = $"{GameManager.instance.player.Score}";
         score[1].text = $"Stage-{GameManager.instance.player.StageNum}";
         score[2].text = $"{GameManager.instance.player.BoundsScore}";
-         
+        scoreReset = GameManager.instance.player.Score;
+        if(GameManager.instance.player.Life>=4){
+            for(int i = 0; i <4; i++){
+            Life[i].gameObject.SetActive(true);
+        }
+        
+        }else{
+            for(int i = 0; i <GameManager.instance.player.Life-1; i++){
+            Life[i].gameObject.SetActive(true);
+        }
+        }
+        
         
         
     }
@@ -29,10 +41,13 @@ public class UiBoard : MonoBehaviour
             flag =true;
             StartCoroutine(BonusDiscount());
             GameManager.instance.player.BoundsScore -=10;
-            score[0].text = $"{GameManager.instance.player.Score}";
+            
             score[2].text = $"{GameManager.instance.player.BoundsScore}";
         }
-        
+        if(scoreReset <= GameManager.instance.player.Score){
+            scoreReset = GameManager.instance.player.Score;
+            score[0].text = $"{scoreReset}";}
+
         
         
         

@@ -30,14 +30,13 @@ public class SceneChange : MonoBehaviour
                     GameManager.instance.player.Life --;
                     
                     
-                    if(GameManager.instance.player.Life<0){
-                        SceneManager.LoadScene($"LoadingScene");
+                    if(GameManager.instance.player.Life==0){
+                        SceneManager.LoadScene($"GameOver");
                     }else{
                         SceneManager.LoadScene($"LoadingScene");
                     }
-                    GameManager.instance.player.ClearChk = false;
                     GameManager.instance.player.Die = false;
-
+                
 
 
                 }
@@ -53,16 +52,12 @@ public class SceneChange : MonoBehaviour
                 StartCoroutine("Waiting");
                 count++;
                 Debug.Log(count);
-                if (count == 2)
+                if (count == 4)
                 {
 
                     GameManager.instance.player.ClearChk = false;
-                    GameManager.instance.player.StageNum ++;
-                    if(GameManager.instance.player.Life<0){
+
                         SceneManager.LoadScene($"LoadingScene");
-                    }else{
-                        SceneManager.LoadScene($"LoadingScene");
-                    }
                     
 
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class MongkeyMaker : MonoBehaviour
 {
     [SerializeField]
     public GameObject player =null;
@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     public int ArrayCount =0;
     private int count =0;
     private int pooingCount = 0;
-    public static Spawner instance =null;
+    public static MongkeyMaker instance =null;
     private bool chk = false;
     // Start is called before the first frame update
     void Awake(){
@@ -26,6 +26,7 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"stage {GameManager.instance.stageNum}");
         spawnner = new GameObject[ArrayCount];
         for(int i = 0; i< spawnner.Length; i++ ){
             GameObject Objs = Instantiate(Rollerable);
@@ -53,7 +54,7 @@ public class Spawner : MonoBehaviour
                     
                     
                     spawnner[pooingCount].SetActive(true);
-                    spawnner[pooingCount].transform.position =new Vector3 (player.transform.position.x+14f,0,0);
+                    spawnner[pooingCount].transform.position =new Vector3 (player.transform.position.x+14f,0.35f,0);
                     Debug.Log($"ring : {spawnner[pooingCount].transform.position}" );
                      Debug.Log($"main : {player.transform.position}" );
                    pooingCount ++;
@@ -74,4 +75,5 @@ public class Spawner : MonoBehaviour
         chk = false;
         count++;
     }
+    
 }

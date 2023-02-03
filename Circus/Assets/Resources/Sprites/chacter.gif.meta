@@ -387,7 +387,7 @@ TextureImporter:
         x: 118
         y: 296
         width: 16
-        height: 23
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1733,7 +1733,7 @@ TextureImporter:
         width: 12
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1741,6 +1741,27 @@ TextureImporter:
       bones: []
       spriteID: 13b94b79827896540b5fd4a9880140aa
       internalID: 107682405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chacter_77
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 310
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 3, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9878b0514b92637449215658b972e35f
+      internalID: 2101942302
       vertices: []
       indices: 
       edges: []
@@ -1813,6 +1834,7 @@ TextureImporter:
       chacter_73: -1402048990
       chacter_38: 263460573
       chacter_74: -1926338413
+      chacter_77: 2101942302
       chacter_27: -71125971
       chacter_76: 107682405
       chacter_37: -790177897

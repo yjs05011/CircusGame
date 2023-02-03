@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scene/PressAny.unity
     guid: ebe5ce88daf00994093b84be98ac825a
   - enabled: 1
-    path: Assets/Scene/Stage1.unity
+    path: Assets/Scene/Stage0.unity
     guid: 2634cf4a76d9ed5459724498224d78ef
   - enabled: 1
     path: Assets/Scene/LoadingScene.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/GameOver.unity
     guid: 961af6c3a54bbde4fb213357faf73a09
+  - enabled: 1
+    path: Assets/Scene/Stage1.unity
+    guid: cc6b5069897d44c418f82a8690de087d
   m_configObjects: {}
