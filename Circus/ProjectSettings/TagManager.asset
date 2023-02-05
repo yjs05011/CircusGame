@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Dead
+  - Goal
+  - Score
   layers:
   - Default
   - TransparentFX
@@ -38,6 +42,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 3231236143
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: button
+    uniqueID: 3085360157
+    locked: 0
+  - name: Back
+    uniqueID: 1876583789
+    locked: 0
+  - name: player
+    uniqueID: 157041083
+    locked: 0
+  - name: Front
+    uniqueID: 1158381979
     locked: 0
